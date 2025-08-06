@@ -1,0 +1,558 @@
+/* 1. Variables and Base Styles */
+:root {
+    --cobalt-blue: #1F4FFF;
+    --aqua-green: #00E0B8;
+    --ice-gray: #F4F7FA;
+    --deep-blue: #1A1E2E;
+    --white: #FFFFFF;
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--ice-gray);
+    color: var(--deep-blue);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* 2. Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(244, 247, 250, 0.8);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem; /* 80px */
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--deep-blue);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700;
+}
+
+.main-nav {
+    display: none;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: var(--deep-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--cobalt-blue);
+}
+
+.header-btn {
+    display: none;
+}
+
+/* 3. Buttons and Links */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem; /* 18px */
+}
+
+.btn-primary {
+    background-color: var(--cobalt-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #1a43d9;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--ice-gray);
+    border-color: rgba(244, 247, 250, 0.5);
+}
+
+.btn-outline:hover {
+    background-color: rgba(244, 247, 250, 0.1);
+    color: var(--white);
+}
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--cobalt-blue);
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* 4. Sections */
+section {
+    padding: 4rem 0;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.section-header p {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: rgba(26, 30, 46, 0.8);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.max-w-4xl {
+    max-width: 56rem; /* 896px */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 5. Hero Section */
+.hero-section {
+    position: relative;
+    background-color: var(--deep-blue);
+    color: var(--ice-gray);
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--deep-blue), var(--cobalt-blue), var(--aqua-green));
+    background-size: 200% 200%;
+    animation: gradient-animation 15s ease infinite;
+    opacity: 0.8;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.hero-content p {
+    margin-top: 1.5rem;
+    max-width: 48rem; /* 768px */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+    color: rgba(244, 247, 250, 0.9);
+}
+
+.hero-buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* 6. About Section */
+.about-section {
+    background-color: var(--white);
+    padding: 4rem 0;
+}
+
+.about-section h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.about-section p {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(26, 30, 46, 0.8);
+}
+
+/* 7. Services Section */
+.services-section {
+    background-color: var(--ice-gray);
+}
+
+.services-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+}
+
+.card-icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(31, 79, 255, 0.1);
+    color: var(--cobalt-blue);
+}
+
+.card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: rgba(26, 30, 46, 0.8);
+    line-height: 1.6;
+}
+
+.card-link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* 8. Portfolio Section */
+.portfolio-section {
+    background-color: var(--white);
+}
+
+.carousel {
+    position: relative;
+    max-width: 64rem; /* 1024px */
+    margin: 0 auto 2rem;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    padding: 0 0.5rem;
+}
+
+.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ice-gray);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.portfolio-content {
+    padding: 2rem;
+}
+
+.portfolio-metric {
+    font-family: var(--font-display);
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    color: var(--aqua-green);
+}
+
+.portfolio-content p {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: rgba(26, 30, 46, 0.8);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--deep-blue);
+    display: none; /* Hidden by default, shown on larger screens */
+}
+
+.carousel-button.prev { left: -3rem; }
+.carousel-button.next { right: -3rem; }
+.carousel-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 9. Testimonials Section */
+.testimonials-section {
+    background-color: var(--ice-gray);
+}
+
+.testimonials-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.testimonial-card blockquote {
+    font-size: 1.125rem;
+    font-style: italic;
+    color: rgba(26, 30, 46, 0.9);
+}
+
+.testimonial-card cite {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* 10. CTA Section */
+.cta-section {
+    background-color: var(--deep-blue);
+    color: var(--ice-gray);
+}
+
+.cta-section h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.cta-section p {
+    margin-top: 1rem;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(244, 247, 250, 0.8);
+}
+
+.cta-form {
+    margin-top: 2rem;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cta-form input {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(244, 247, 250, 0.2);
+    background-color: rgba(244, 247, 250, 0.1);
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.cta-form input::placeholder {
+    color: rgba(244, 247, 250, 0.6);
+}
+
+.cta-form input:focus {
+    outline: none;
+    border-color: var(--cobalt-blue);
+}
+
+/* 11. Footer */
+.footer {
+    background-color: var(--deep-blue);
+    color: rgba(244, 247, 250, 0.7);
+    padding: 2rem 0;
+}
+
+.footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-icon-footer {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-nav a {
+    font-size: 0.875rem;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--white);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(244, 247, 250, 0.2);
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+/* 12. Responsive Styles */
+@media (min-width: 768px) {
+    .main-nav { display: flex; }
+    .header-btn { display: inline-flex; }
+    
+    .hero-content h1 { font-size: 4rem; }
+    .hero-buttons { flex-direction: row; justify-content: center; }
+
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-link-wrapper { grid-column: span 2; }
+
+    .portfolio-card { flex-direction: row; }
+    .portfolio-img { width: 50%; }
+    .portfolio-content { width: 50%; }
+    .carousel-button { display: block; }
+
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .cta-form { flex-direction: row; }
+    .cta-form input { flex: 1; }
+
+    .footer-main { flex-direction: row; justify-content: space-between; }
+}
+
+@media (min-width: 1024px) {
+    section { padding: 6rem 0; }
+    .hero-section { padding: 8rem 0; }
+    .hero-content h1 { font-size: 4.5rem; }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .card-link-wrapper { grid-column: auto; }
+}
